@@ -4,6 +4,7 @@ services:
     image: docker:stable-dind
     container_name: swarm-manager
     hostname: manager
+    user: root
     privileged: true
     ports:
       - "2375:2375"
@@ -12,6 +13,8 @@ services:
     networks:
       static-network:
         ipv4_address: 172.20.128.5
+    volumes:
+      - ./data:/home/data
   node1:
     image: docker:stable-dind
     container_name: swarm-node1
@@ -20,6 +23,8 @@ services:
     networks:
       static-network:
         ipv4_address: 172.20.128.3
+    volumes:
+      - ./data:/home/data
   node2:
     image: docker:stable-dind
     container_name: swarm-node2
@@ -28,6 +33,8 @@ services:
     networks:
       static-network:
         ipv4_address: 172.20.128.4
+    volumes:
+      - ./data:/home/data
 networks:
   static-network:
     ipam:
