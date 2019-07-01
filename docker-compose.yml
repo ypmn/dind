@@ -1,7 +1,7 @@
 version: '2'
 services:
   manager:
-    image: docker:17.06.0-dind
+    image: docker:stable-dind
     container_name: swarm-manager
     hostname: manager
     privileged: true
@@ -13,7 +13,7 @@ services:
       static-network:
         ipv4_address: 172.20.128.5
   node1:
-    image: docker:17.06.0-dind
+    image: docker:stable-dind
     container_name: swarm-node1
     hostname: node1
     privileged: true
@@ -21,7 +21,7 @@ services:
       static-network:
         ipv4_address: 172.20.128.3
   node2:
-    image: docker:17.06.0-dind
+    image: docker:stable-dind
     container_name: swarm-node2
     hostname: node2
     privileged: true
